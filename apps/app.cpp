@@ -7,7 +7,7 @@ int main() {
     vec.set_x(23.0);
     std::cout << vec;
 
-    Point3D pnt {10, 20, 30};
+    Point3D pnt {10, 20, 300};
     std::cout << pnt << "\n";
     pnt.set_x(23.0);
     std::cout << pnt;

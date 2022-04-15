@@ -41,3 +41,8 @@ void Point::set_z(const double& z)
 {
     this->z = z;
 }
+
+Vector Point::operator-(const Point& rhs) const
+{
+    return Vector(x - rhs.x, y - rhs.y, z - rhs.z);
+}

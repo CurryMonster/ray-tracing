@@ -3,18 +3,19 @@
 #include <iostream>
 #include <Utilities/vector.hpp>
 
-class Point 
+class Normal 
 {
-    friend std::ostream& operator<<(std::ostream& os, const Point& rhs);
+    friend std::ostream& operator<<(std::ostream& os, const Normal& rhs);
+    friend double operator*(const Normal& lhs, const Vector& rhs);
+    friend double operator*(const Vector& lhs, const Normal& rhs);
     public:
-        Point(const double& x, const double& y, const double& z);
+        Normal(const double& x, const double& y, const double& z);
         double get_x() const;
         double get_y() const;
         double get_z() const;
         void set_x(const double& x);
         void set_y(const double& y);
         void set_z(const double& z);
-        Vector operator-(const Point& rhs) const;
     private:
         double x;
         double y;

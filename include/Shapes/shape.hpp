@@ -1,3 +1,5 @@
+#pragma once
+
 #include <Utilities/ray.hpp>
 #include <Utilities/record.hpp>
 #include <Utilities/color.hpp>

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <Shapes/shape.hpp>
 #include <Utilities/point.hpp>
 #include <Utilities/normal.hpp>

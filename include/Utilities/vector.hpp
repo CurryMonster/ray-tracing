@@ -5,6 +5,9 @@
 class Vector 
 {
     friend std::ostream& operator<<(std::ostream& os, const Vector& rhs);
+    friend Vector operator*(const double& lhs, const Vector& rhs);
+    friend Vector operator*(const Vector& lhs, const double& rhs);
+    friend double operator*(const Vector& lhs, const Vector& rhs);
     public:
         Vector(const double& x, const double& y, const double& z);
         double get_x() const;
@@ -14,6 +17,7 @@ class Vector
         void set_y(const double& y);
         void set_z(const double& z);
         Vector operator+(const Vector& rhs) const;
+        Vector operator/(const double& rhs) const;
     private:
         double x;
         double y;

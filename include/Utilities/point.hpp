@@ -6,6 +6,7 @@
 class Point 
 {
     friend std::ostream& operator<<(std::ostream& os, const Point& rhs);
+    friend Point operator+(const Point& rhs, const Vector& lhs);
     public:
         Point(const double& x, const double& y, const double& z);
         double get_x() const;

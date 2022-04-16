@@ -51,3 +51,11 @@ double operator*(const Vector& lhs, const Normal& rhs)
 {
     return lhs.get_x() * rhs.get_x() + lhs.get_y() * rhs.get_y() + lhs.get_z() * rhs.get_z();
 }
+
+Normal& Normal::operator=(const Vector& rhs)
+{
+    x = rhs.get_x();
+    y = rhs.get_y();
+    z = rhs.get_z();
+    return *this;
+}

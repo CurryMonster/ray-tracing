@@ -16,6 +16,7 @@ class Normal
         void set_x(const double& x);
         void set_y(const double& y);
         void set_z(const double& z);
+        Normal& operator=(const Vector& rhs);
     private:
         double x;
         double y;

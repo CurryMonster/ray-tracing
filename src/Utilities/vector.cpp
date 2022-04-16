@@ -46,3 +46,23 @@ Vector Vector::operator+(const Vector& rhs) const
 {
     return Vector(x + rhs.x, y + rhs.y, z + rhs.z);
 }
+
+Vector Vector::operator/(const double& rhs) const 
+{
+    return Vector(x / rhs, y / rhs, z / rhs);
+}
+
+Vector operator*(const double& lhs, const Vector& rhs)
+{
+    return Vector(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z);
+}
+
+Vector operator*(const Vector& lhs, const double& rhs)
+{
+    return Vector(lhs.x * rhs, lhs.y * rhs, lhs.z * rhs);
+}
+
+double operator*(const Vector& lhs, const Vector& rhs)
+{
+    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
+}

@@ -46,3 +46,8 @@ Vector Point::operator-(const Point& rhs) const
 {
     return Vector(x - rhs.x, y - rhs.y, z - rhs.z);
 }
+
+Point operator+(const Point& lhs, const Vector& rhs)
+{
+    return Point(lhs.get_x() + rhs.get_x(), lhs.get_y() + rhs.get_y(), lhs.get_z() + rhs.get_z());
+}

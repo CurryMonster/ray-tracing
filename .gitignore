@@ -31,6 +31,8 @@
 *.out
 *.app
 
-# Directories
+# Additional
 build/
 *.vscode
+*.ppm
+*.pgm

@@ -6,7 +6,7 @@ class Color
 {
     friend std::ostream& operator<<(std::ostream& os, const Color& rhs);
     public:
-        Color() {};
+        Color();
         Color(const double& x, const double& y, const double& z);
         double get_x() const;
         double get_y() const;

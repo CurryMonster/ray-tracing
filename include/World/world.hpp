@@ -4,8 +4,6 @@
 #include <Utilities/color.hpp>
 #include <Shapes/sphere.hpp>
 
-#include <memory>
-
 class Tracer;
 
 class World 

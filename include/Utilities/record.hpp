@@ -4,8 +4,6 @@
 #include <Utilities/normal.hpp>
 #include <Utilities/color.hpp>
 
-#include <memory>
-
 class World;
 
 class Record 

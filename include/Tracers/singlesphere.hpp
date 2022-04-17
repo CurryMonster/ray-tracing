@@ -4,8 +4,6 @@
 #include <Utilities/color.hpp>
 #include <Utilities/ray.hpp>
 
-#include <memory>
-
 class World;
 
 class SingleSphere: public Tracer 

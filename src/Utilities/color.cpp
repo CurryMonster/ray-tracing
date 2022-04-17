@@ -1,5 +1,13 @@
 #include <Utilities/color.hpp>
 
+Color::Color()
+: x {0.0}, y {0.0}, z {0.0}
+{
+
+}
+
+
+
 Color::Color(const double& x, const double& y, const double& z)
 : x {x}, y {y}, z {z}
 {

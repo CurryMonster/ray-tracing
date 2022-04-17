@@ -24,7 +24,7 @@ Color SingleSphere::trace_ray(const Ray& ray) const
     }
     else 
     {
-        return Color(1.0, 1.0, 1.0);
+        return Color(0.0, 0.0, 1.0);
     }
 
 }

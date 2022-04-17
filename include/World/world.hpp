@@ -1,18 +1,19 @@
 #pragma once
 
-#include <World/view.hpp>
+#include <World/viewplane.hpp>
 #include <Utilities/color.hpp>
 #include <Shapes/sphere.hpp>
+
+#include <memory>
 
 class Tracer;
 
 class World 
 {
     public:
-        View view;
-        Color background_color;
+        ViewPlane view_plane;
         Sphere sphere;
-        Tracer* tracer_ptr;
+        std::shared_ptr<Tracer> tracer_ptr;
 
         World();
         ~World();

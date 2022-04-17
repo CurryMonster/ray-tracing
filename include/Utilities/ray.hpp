@@ -9,7 +9,7 @@ class Ray {
         Ray(const Point& origin, const Vector& direction);
         Point get_origin() const;
         Vector get_direction() const;
-        void set_origin(const Point& origin);
+        void set_origin(const double& x, const double& y, const double& z);
         void set_direction(const double& x, const double& y, const double& z);
     private:
         Point origin;

@@ -10,5 +10,6 @@ class SingleSphere: public Tracer
 {
     public:
         SingleSphere(World* world_ptr);
+        virtual ~SingleSphere();
         virtual Color trace_ray(const Ray& ray) const override;
 };

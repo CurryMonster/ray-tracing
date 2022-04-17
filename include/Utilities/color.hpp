@@ -19,3 +19,10 @@ class Color
         double y;
         double z;
 };
+
+const Color black {0.0, 0.0, 0.0};
+const Color white {1.0, 1.0, 1.0};
+const Color red {1.0, 0.0, 0.0};
+const Color lime {0.0, 1.0, 0.0};
+const Color blue {0.0, 0.0, 1.0};
+const Color yellow {1.0, 1.0, 0.0};

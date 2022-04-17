@@ -22,9 +22,11 @@ Vector Ray::get_direction() const
     return direction;
 }
 
-void Ray::set_origin(const Point& origin)
+void Ray::set_origin(const double& x, const double& y, const double& z)
 {
-    this->origin = origin;
+    origin.set_x(x);
+    origin.set_y(y);
+    origin.set_z(z);
 }
 
 void Ray::set_direction(const double& x, const double& y, const double& z)

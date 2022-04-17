@@ -6,7 +6,8 @@
 
 class Shape {
     public:
-        Shape() {};
+        Shape();
+        virtual ~Shape();
         virtual bool hit(const Ray& ray, double& t_min, Record& rec) const = 0;
         Color get_color() const;
         void set_color(const Color& color);

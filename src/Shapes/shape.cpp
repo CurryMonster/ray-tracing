@@ -1,5 +1,15 @@
 #include <Shapes/shape.hpp>
 
+Shape::Shape() 
+{
+
+}
+
+Shape::~Shape() 
+{
+
+}
+
 Color Shape::get_color() const 
 {
     return color;

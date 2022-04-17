@@ -15,6 +15,11 @@ Sphere::Sphere(const Point& center, const double& radius)
 
 }
 
+Sphere::~Sphere()
+{
+
+}
+
 Point Sphere::get_center() const
 {
     return center;
@@ -25,9 +30,11 @@ double Sphere::get_radius() const
     return radius;
 }
         
-void Sphere::set_center(const Point& center)
+void Sphere::set_center(const double& x, const double& y, const double& z)
 {
-    this->center = center;
+    center.set_x(x);
+    center.set_y(y);
+    center.set_z(z);
 }
         
 void Sphere::set_radius(const double& radius) 

@@ -2,6 +2,9 @@
 
 #include <Tracers/singlesphere.hpp>
 
+#include <fstream>
+#include <iostream>
+
 World::World() 
 : tracer_ptr {new SingleSphere(this)}
 {
@@ -10,19 +13,18 @@ World::World()
 
 World::~World() 
 {
-    if (tracer_ptr != nullptr) 
-        delete tracer_ptr;
+    delete tracer_ptr;
 }
 
 void World::build() 
 {
-    view.hres = 200;
-    view.vres = 200;
-    view.s = 1.0;
+    view.hres = 400;
+    view.vres = 400;
+    view.s = 0.5;
     view.gamma = 1.0;
 
     sphere.set_center(Point(0.0, 0.0, 0.0));
-    sphere.set_radius(50.0);
+    sphere.set_radius(80.0);
 
 }
 
@@ -34,12 +36,14 @@ void World::display_pixel(const Color& pixel_color) const
 void World::render_scene() const 
 {
     Color pixel_color;
-    Ray ray({0.0, 0.0, 0.0}, {0.0, 0.0, 0.0});
+    Ray ray {};
     double z = 100.0;
     double x, y;
 
-    ray.set_direction(Vector(0, 0, 0));
-    std::cout << "P3\n" << view.vres << ' ' << view.hres << "\n255\n";
+    ray.set_direction(0, 0, -1);
+
+    std::cout << "P3\n" << view.vres << ' ' << view.hres << "\n400\n";
+
     for (int i = 0; i < view.vres; i++) {
         for (int j = 0; j < view.hres; j++) { 
             x = view.s * (j - 0.5 * (view.hres - 1.0));

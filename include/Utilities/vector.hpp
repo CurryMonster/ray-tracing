@@ -8,6 +8,7 @@ class Vector
     friend Vector operator*(const Vector& lhs, const double& rhs);
     friend double operator*(const Vector& lhs, const Vector& rhs);
     public:
+        Vector();
         Vector(const double& x, const double& y, const double& z);
         double get_x() const;
         double get_y() const;
@@ -17,6 +18,8 @@ class Vector
         void set_z(const double& z);
         Vector operator+(const Vector& rhs) const;
         Vector operator/(const double& rhs) const;
+        Vector operator^(const Vector& rhs) const;
+        void normalize();
     private:
         double x;
         double y;

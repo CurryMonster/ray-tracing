@@ -7,6 +7,7 @@ class Point
 {
     friend Point operator+(const Point& rhs, const Vector& lhs);
     public:
+        Point();
         Point(const double& x, const double& y, const double& z);
         double get_x() const;
         double get_y() const;

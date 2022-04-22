@@ -11,6 +11,7 @@ class Plane: public Shape
     public:
         Plane();
         Plane(const Point& point, const Normal& normal);
+        ~Plane();
         virtual bool hit(const Ray& ray, double& t_min, Record& rec) const override;
         Point get_point() const;
         Normal get_normal() const;

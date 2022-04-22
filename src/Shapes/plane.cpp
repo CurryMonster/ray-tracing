@@ -11,6 +11,11 @@ Plane::Plane(const Point& point, const Normal& normal)
 
 }
 
+Plane::~Plane()
+{
+    
+}
+
 Point Plane::get_point() const
 {
     return point;

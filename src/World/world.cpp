@@ -61,7 +61,7 @@ void World::build()
     insert_shape(sphere_3);
 }
 
-void World::display_pixel(SDL_Renderer* renderer, const Color& color, const int& x, const int& y) const 
+void World::render_pixel_color(SDL_Renderer* renderer, const Color& color, const int& x, const int& y) const 
 {
     SDL_SetRenderDrawColor(renderer, 
                            static_cast<int>(color.get_x() * 255), 
@@ -84,15 +84,15 @@ void World::render_scene(SDL_Renderer* renderer) const
 
     SDL_RenderClear(renderer);
 
-    for (int i = 0; i < view_plane.vertical_resolution; i++) 
+    for (int i = 0; i < view_plane.vertical_resolution; i++) // up
     {
-        for (int j = 0; j < view_plane.horizontal_resolution; j++) 
+        for (int j = 0; j < view_plane.horizontal_resolution; j++) // across
         { 
             x = view_plane.pixel_size * (j - 0.5 * (view_plane.horizontal_resolution - 1.0));
             y = view_plane.pixel_size * (i - 0.5 * (view_plane.vertical_resolution   - 1.0));
             ray.set_origin(x, y, z);
             color = tracer_ptr->trace_ray(ray);
-            display_pixel(renderer, color, j, i);
+            render_pixel_color(renderer, color, j, i);
         }    
     }
 

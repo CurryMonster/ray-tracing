@@ -25,7 +25,7 @@ class World
 
         void build();
         void render_scene(SDL_Renderer* renderer) const;
-        void display_pixel(SDL_Renderer* renderer, const Color& pixel_color, const int& x, const int& y) const;     
+        void render_pixel_color(SDL_Renderer* renderer, const Color& pixel_color, const int& x, const int& y) const;     
 
         void insert_shape(std::shared_ptr<Shape>);
         Record config_record(const Ray& ray) const;

@@ -9,7 +9,7 @@ class Sphere: public Shape
 {
     public:
         Sphere();
-        virtual ~Sphere();
+        virtual ~Sphere() override;
         Sphere(const Point& center, const double& radius);
         Point get_center() const;
         double get_radius() const;

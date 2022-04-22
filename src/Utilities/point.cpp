@@ -1,5 +1,10 @@
 #include <Utilities/point.hpp>
 
+Point::Point() : x {0}, y {0}, z {0}
+{
+    
+}
+
 Point::Point(const double& x, const double& y, const double& z)
 : x {x}, y {y}, z {z}
 {

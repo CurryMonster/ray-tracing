@@ -6,10 +6,10 @@
 
 class World;
 
-class SingleSphere: public Tracer 
+class MultipleObjects: public Tracer 
 {
     public:
-        SingleSphere(World* world_ptr);
-        virtual ~SingleSphere() override;
+        MultipleObjects(World* world_ptr);
+        virtual ~MultipleObjects() override;
         virtual Color trace_ray(const Ray& ray) const override;
 };

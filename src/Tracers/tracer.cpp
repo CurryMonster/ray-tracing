@@ -10,3 +10,8 @@ Tracer::~Tracer()
 {
 
 }
+
+Color Tracer::trace_ray(const Ray& ray) const
+{
+    return black;
+}

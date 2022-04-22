@@ -9,12 +9,13 @@
 class Plane: public Shape 
 {
     public:
+        Plane();
         Plane(const Point& point, const Normal& normal);
         virtual bool hit(const Ray& ray, double& t_min, Record& rec) const override;
         Point get_point() const;
         Normal get_normal() const;
-        void set_point(const Point& point);
-        void set_normal(const Normal& normal);
+        void set_point(const double& x, const double& y, const double& z);
+        void set_normal(const double& x, const double& y, const double& z);
     private:
         Point point;
         Normal normal;

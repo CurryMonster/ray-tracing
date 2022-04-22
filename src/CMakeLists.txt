@@ -41,11 +41,13 @@ set(SOURCE_WORLD
 set(HEADER_TRACERS
     ${PROJECT_SOURCE_DIR}/include/Tracers/tracer.hpp
     ${PROJECT_SOURCE_DIR}/include/Tracers/singlesphere.hpp
+    ${PROJECT_SOURCE_DIR}/include/Tracers/multiple-objects.hpp
 )
 
 set(SOURCE_TRACERS
     ${PROJECT_SOURCE_DIR}/src/Tracers/tracer.cpp
     ${PROJECT_SOURCE_DIR}/src/Tracers/singlesphere.cpp
+    ${PROJECT_SOURCE_DIR}/src/Tracers/multiple-objects.cpp
 )
 
 set(HEADER_WINDOW ${PROJECT_SOURCE_DIR}/include/Window/window.hpp)

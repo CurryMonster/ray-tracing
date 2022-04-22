@@ -3,8 +3,7 @@
 #include "Shapes/sphere.hpp"
 #include "Utilities/record.hpp"
 
-SingleSphere::SingleSphere(World* world_ptr)
-: Tracer(world_ptr)
+SingleSphere::SingleSphere(World* world_ptr) : Tracer(world_ptr)
 {
 
 }

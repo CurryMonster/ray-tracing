@@ -1,5 +1,10 @@
 #include "Shapes/plane.hpp"
 
+Plane::Plane() : point {0, 0, 0}, normal {0, 0, 0}
+{
+
+}
+
 Plane::Plane(const Point& point, const Normal& normal) 
 : point {point}, normal {normal}
 {
@@ -16,14 +21,18 @@ Normal Plane::get_normal() const
     return normal;
 }
 
-void Plane::set_point(const Point& point)
+void Plane::set_point(const double& x, const double& y, const double& z)
 {
-    this->point = point;
+    point.set_x(x);
+    point.set_y(y);
+    point.set_z(z);
 }
 
-void Plane::set_normal(const Normal& normal)
+void Plane::set_normal(const double& x, const double& y, const double& z)
 {
-    this->normal = normal;
+    normal.set_x(x);
+    normal.set_y(y);
+    normal.set_z(z);
 }
 
 bool Plane::hit(const Ray& ray, double& t_min, Record& rec) const

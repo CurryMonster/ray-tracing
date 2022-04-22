@@ -2,4 +2,4 @@ add_executable(app app.cpp)
 
 target_compile_features(app PRIVATE cxx_std_17)
 
-target_link_libraries(app PRIVATE World Tracers Shapes Utilities)
+target_link_libraries(app PRIVATE Window World Tracers Shapes Utilities)

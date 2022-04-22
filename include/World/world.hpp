@@ -1,8 +1,9 @@
 #pragma once
 
-#include <World/viewplane.hpp>
-#include <Utilities/color.hpp>
-#include <Shapes/sphere.hpp>
+#include "World/viewplane.hpp"
+#include "Shapes/sphere.hpp"
+#include "Utilities/color.hpp"
+#include "SDL.h"
 
 #include <memory>
 
@@ -19,9 +20,7 @@ class World
         ~World();
 
         void build();
-        void render_scene() const;
-        void display_pixel(const Color& pixel_color) const;
-
-        
+        void render_scene(SDL_Renderer* renderer) const;
+        void display_pixel(SDL_Renderer* renderer, const Color& pixel_color, const int& x, const int& y) const;     
 };
 

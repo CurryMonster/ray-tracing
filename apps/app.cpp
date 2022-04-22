@@ -1,8 +1,7 @@
-#include <World/world.hpp>
+#include "Window/window.hpp"
 
-int main() {
-    World world;
-    world.build();
-    world.render_scene();
+int main(int argc, char* argv[]) 
+{
+    Window w {500, 500};
     return 0;
 }

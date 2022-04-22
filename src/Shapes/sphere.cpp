@@ -1,6 +1,6 @@
-#include <Shapes/sphere.hpp>
+#include "Shapes/sphere.hpp"
+#include "Utilities/vector.hpp"
 
-#include <Utilities/vector.hpp>
 #include <cmath>
 
 Sphere::Sphere()

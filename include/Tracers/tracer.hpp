@@ -1,7 +1,7 @@
 #pragma once
 
-#include <Utilities/color.hpp>
-#include <Utilities/ray.hpp>
+#include "Utilities/color.hpp"
+#include "Utilities/ray.hpp"
 
 class World;
 

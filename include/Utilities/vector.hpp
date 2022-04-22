@@ -4,7 +4,6 @@
 
 class Vector 
 {
-    friend std::ostream& operator<<(std::ostream& os, const Vector& rhs);
     friend Vector operator*(const double& lhs, const Vector& rhs);
     friend Vector operator*(const Vector& lhs, const double& rhs);
     friend double operator*(const Vector& lhs, const Vector& rhs);

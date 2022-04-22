@@ -6,12 +6,6 @@ Point::Point(const double& x, const double& y, const double& z)
 
 }
 
-std::ostream& operator<<(std::ostream& os, const Point& rhs)
-{
-    os << rhs.x << ", " << rhs.y << ", " << rhs.z << "\n";
-    return os;
-}
-
 double Point::get_x() const 
 {
     return x;

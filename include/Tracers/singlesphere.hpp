@@ -1,8 +1,8 @@
 #pragma once
 
-#include <Tracers/tracer.hpp>
-#include <Utilities/color.hpp>
-#include <Utilities/ray.hpp>
+#include "Tracers/tracer.hpp"
+#include "Utilities/color.hpp"
+#include "Utilities/ray.hpp"
 
 class World;
 

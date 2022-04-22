@@ -5,7 +5,6 @@
 
 class Normal 
 {
-    friend std::ostream& operator<<(std::ostream& os, const Normal& rhs);
     friend double operator*(const Normal& lhs, const Vector& rhs);
     friend double operator*(const Vector& lhs, const Normal& rhs);
     public:

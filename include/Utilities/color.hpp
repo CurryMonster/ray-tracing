@@ -4,7 +4,6 @@
 
 class Color
 {
-    friend std::ostream& operator<<(std::ostream& os, const Color& rhs);
     public:
         Color();
         Color(const double& x, const double& y, const double& z);

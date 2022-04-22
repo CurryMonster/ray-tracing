@@ -1,7 +1,7 @@
-#include <Tracers/singlesphere.hpp>
-#include <World/world.hpp>
-#include <Shapes/sphere.hpp>
-#include <Utilities/record.hpp>
+#include "Tracers/singlesphere.hpp"
+#include "World/world.hpp"
+#include "Shapes/sphere.hpp"
+#include "Utilities/record.hpp"
 
 SingleSphere::SingleSphere(World* world_ptr)
 : Tracer(world_ptr)
@@ -25,7 +25,7 @@ Color SingleSphere::trace_ray(const Ray& ray) const
     }
     else 
     {
-        return black;
+        return lime;
     }
 
 }

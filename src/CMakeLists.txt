@@ -48,17 +48,28 @@ set(SOURCE_TRACERS
     ${PROJECT_SOURCE_DIR}/src/Tracers/singlesphere.cpp
 )
 
+set(HEADER_WINDOW ${PROJECT_SOURCE_DIR}/include/Window/window.hpp)
+set(SOURCE_WINDOW ${PROJECT_SOURCE_DIR}/src/Window/window.cpp)
+
 add_library(Utilities STATIC ${SOURCE_UTILITIES} ${HEADER_UTILITIES})
 add_library(Shapes    STATIC ${SOURCE_SHAPES}    ${HEADER_SHAPES})
 add_library(World     STATIC ${SOURCE_WORLD}     ${HEADER_WORLD})
 add_library(Tracers   STATIC ${SOURCE_TRACERS}   ${HEADER_TRACERS})
+add_library(Window    STATIC ${SOURCE_WINDOW}    ${HEADER_WINDOW})
 
 target_include_directories(Utilities PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(Shapes    PUBLIC ${PROJECT_SOURCE_DIR}/include)
-target_include_directories(World     PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(Tracers   PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(World     PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(Window    PUBLIC ${PROJECT_SOURCE_DIR}/include PUBLIC ${PROJECT_SOURCE_DIR}/extern/SDL2-2.0.20/include)
+
+target_link_libraries(World  PUBLIC SDL2-static)
+target_link_libraries(Window PUBLIC SDL2-static)
+
+include_directories(${PROJECT_SOURCE_DIR}/extern/SDL2-2.0.20/include)
 
 target_compile_features(Utilities PRIVATE cxx_std_17)
 target_compile_features(Shapes    PRIVATE cxx_std_17)
 target_compile_features(World     PRIVATE cxx_std_17)
 target_compile_features(Tracers   PRIVATE cxx_std_17)
+target_compile_features(Window    PRIVATE cxx_std_17)

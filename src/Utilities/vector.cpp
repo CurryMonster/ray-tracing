@@ -6,12 +6,6 @@ Vector::Vector(const double& x, const double& y, const double& z)
 
 }
 
-std::ostream& operator<<(std::ostream& os, const Vector& rhs)
-{
-    os << rhs.x << ", " << rhs.y << ", " << rhs.z << "\n";
-    return os;
-}
-
 double Vector::get_x() const 
 {
     return x;

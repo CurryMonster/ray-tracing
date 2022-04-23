@@ -11,6 +11,6 @@ class Tracer
         Tracer(World* world_ptr);
         virtual Color trace_ray(const Ray& ray) const;
         virtual ~Tracer();
-    protected:
+    public:
         World* world_ptr;
 };

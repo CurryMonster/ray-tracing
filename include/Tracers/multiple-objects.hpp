@@ -5,7 +5,7 @@
 #include "Utilities/ray.hpp"
 
 class World;
-
+     
 class MultipleObjects: public Tracer 
 {
     public:

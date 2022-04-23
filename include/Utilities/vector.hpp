@@ -17,10 +17,11 @@ class Vector
         void set_y(const double& y);
         void set_z(const double& z);
         Vector operator+(const Vector& rhs) const;
+        Vector operator-(const Vector& rhs) const;
         Vector operator/(const double& rhs) const;
         Vector operator^(const Vector& rhs) const;
         void normalize();
-    private:
+    public:
         double x;
         double y;
         double z;

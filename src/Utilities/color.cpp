@@ -1,7 +1,6 @@
 #include <Utilities/color.hpp>
 
-Color::Color()
-: x {0.0}, y {0.0}, z {0.0}
+Color::Color() : x {0.0}, y {0.0}, z {0.0}
 {
 
 }
@@ -42,4 +41,28 @@ void Color::set_y(const double& y)
 void Color::set_z(const double& z)
 {
     this->z = z;
+}
+
+Color& Color::operator+=(const Color& rhs)
+{
+    x += rhs.x;
+    y += rhs.y;
+    z += rhs.z;
+    return *this;
+}
+
+Color& Color::operator*=(const double& rhs)
+{
+    x *= rhs;
+    y *= rhs;
+    z *= rhs;
+    return *this;
+}
+
+Color& Color::operator/=(const double& rhs)
+{
+    x /= rhs;
+    y /= rhs;
+    z /= rhs;
+    return *this;
 }

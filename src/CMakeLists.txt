@@ -5,6 +5,7 @@ set(HEADER_UTILITIES
     ${PROJECT_SOURCE_DIR}/include/Utilities/normal.hpp
     ${PROJECT_SOURCE_DIR}/include/Utilities/ray.hpp
     ${PROJECT_SOURCE_DIR}/include/Utilities/record.hpp
+    ${PROJECT_SOURCE_DIR}/include/Utilities/math.hpp
 )
 
 set(SOURCE_UTILITIES 
@@ -14,6 +15,7 @@ set(SOURCE_UTILITIES
     ${PROJECT_SOURCE_DIR}/src/Utilities/normal.cpp
     ${PROJECT_SOURCE_DIR}/src/Utilities/ray.cpp
     ${PROJECT_SOURCE_DIR}/src/Utilities/record.cpp
+    ${PROJECT_SOURCE_DIR}/src/Utilities/math.cpp
 )
 
 set(HEADER_SHAPES
@@ -50,6 +52,16 @@ set(SOURCE_TRACERS
     ${PROJECT_SOURCE_DIR}/src/Tracers/multiple-objects.cpp
 )
 
+set(HEADER_SAMPLERS
+    ${PROJECT_SOURCE_DIR}/include/Samplers/sampler.hpp
+    ${PROJECT_SOURCE_DIR}/include/Samplers/jittered.hpp
+)
+    
+set(SOURCE_SAMPLERS
+    ${PROJECT_SOURCE_DIR}/src/Samplers/sampler.cpp
+    ${PROJECT_SOURCE_DIR}/src/Samplers/jittered.cpp
+)
+
 set(HEADER_CAMERAS
     ${PROJECT_SOURCE_DIR}/include/Cameras/camera.hpp
     ${PROJECT_SOURCE_DIR}/include/Cameras/pinhole.hpp
@@ -67,6 +79,7 @@ add_library(Utilities STATIC ${SOURCE_UTILITIES} ${HEADER_UTILITIES})
 add_library(Shapes    STATIC ${SOURCE_SHAPES}    ${HEADER_SHAPES})
 add_library(World     STATIC ${SOURCE_WORLD}     ${HEADER_WORLD})
 add_library(Tracers   STATIC ${SOURCE_TRACERS}   ${HEADER_TRACERS})
+add_library(Samplers  STATIC ${SOURCE_SAMPLERS}  ${HEADER_SAMPLERS})
 add_library(Cameras   STATIC ${SOURCE_CAMERAS}   ${HEADER_CAMERAS})
 add_library(Window    STATIC ${SOURCE_WINDOW}    ${HEADER_WINDOW})
 
@@ -75,7 +88,8 @@ target_include_directories(Shapes    PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(Tracers   PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(World     PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(Cameras   PUBLIC ${PROJECT_SOURCE_DIR}/include)
-target_include_directories(Window    PUBLIC ${PROJECT_SOURCE_DIR}/include PUBLIC ${PROJECT_SOURCE_DIR}/extern/SDL2-2.0.20/include)
+target_include_directories(Samplers  PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(Window    PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 target_link_libraries(World  PUBLIC SDL2-static)
 target_link_libraries(Window PUBLIC SDL2-static)
@@ -86,5 +100,6 @@ target_compile_features(Utilities PRIVATE cxx_std_17)
 target_compile_features(Shapes    PRIVATE cxx_std_17)
 target_compile_features(World     PRIVATE cxx_std_17)
 target_compile_features(Tracers   PRIVATE cxx_std_17)
+target_compile_features(Samplers  PRIVATE cxx_std_17)
 target_compile_features(Cameras   PRIVATE cxx_std_17)
 target_compile_features(Window    PRIVATE cxx_std_17)

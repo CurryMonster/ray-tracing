@@ -10,6 +10,8 @@
 #include <vector>
 
 class Tracer;
+class Camera;
+class Sampler;
 class Record;
 
 class World 
@@ -19,6 +21,8 @@ class World
         Sphere sphere;
         std::shared_ptr<Tracer> tracer_ptr;
         std::vector<std::shared_ptr<Shape>> shapes;
+        std::shared_ptr<Camera> camera_ptr;
+        std::shared_ptr<Sampler> sampler_ptr;
 
         World();
         ~World();

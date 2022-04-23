@@ -2,6 +2,7 @@
 
 #include "Utilities/point.hpp"
 #include "Utilities/vector.hpp"
+#include "SDL.h"
 
 class World;
 
@@ -28,8 +29,8 @@ class Camera
         double get_exposure_time() const;
 
         void compute_uvw();
-        virtual void render_scene(World* w) = 0;
-    private:
+        virtual void render_scene(World* w, SDL_Renderer* renderer) = 0;
+    public:
         Point eye;
         Point look_at;
         Vector up;

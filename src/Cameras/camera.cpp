@@ -13,44 +13,44 @@ Camera::~Camera()
 
 void Camera::set_eye(const double& x, const double& y, const double& z)
 {
-    eye.set_x(x);
-    eye.set_y(y);
-    eye.set_z(z);
+    eye.x = x;
+    eye.y = y;
+    eye.z = z;
 }
 
 void Camera::set_look_at(const double& x, const double& y, const double& z)
 {
-    look_at.set_x(x);
-    look_at.set_y(y);
-    look_at.set_z(z);
+    look_at.x = x;
+    look_at.y = y;
+    look_at.z = z;
 }
 
 void Camera::set_up(const double& x, const double& y, const double& z)
 {
-    up.set_x(x);
-    up.set_y(y);
-    up.set_z(z);
+    up.x = x;
+    up.y = y;
+    up.z = z;
 }
 
 void Camera::set_u(const double& x, const double& y, const double& z)
 {
-    u.set_x(x);
-    u.set_y(y);
-    u.set_z(z);
+    u.x = x;
+    u.y = y;
+    u.z = z;
 }
 
 void Camera::set_v(const double& x, const double& y, const double& z)
 {
-    v.set_x(x);
-    v.set_y(y);
-    v.set_z(z);
+    v.x = x;
+    v.y = y;
+    v.z = z;
 }
 
 void Camera::set_w(const double& x, const double& y, const double& z)
 {
-    w.set_x(x);
-    w.set_y(y);
-    w.set_z(z);
+    w.x = x;
+    w.y = y;
+    w.z = z;
 }
 
 void Camera::set_exposure_time(const double& exposure_time)
@@ -101,34 +101,34 @@ void Camera::compute_uvw()
     u.normalize();
     v = w ^ u;
 
-    if (eye.get_x() == look_at.get_x() && eye.get_z() == look_at.get_z() && look_at.get_y() < eye.get_y())
+    if (eye.x == look_at.x && eye.z == look_at.z && look_at.y < eye.y)
     {
-        u.set_x(0); 
-        u.set_y(0); 
-        u.set_z(1); 
+        u.x = 0.0; 
+        u.y = 0.0; 
+        u.z = 1.0; 
 
-        v.set_x(1); 
-        v.set_y(0); 
-        v.set_z(0);
+        v.x = 1.0; 
+        v.y = 0.0; 
+        v.z = 0.0;
 
-        w.set_x(0); 
-        w.set_y(1); 
-        w.set_z(0);
+        w.x = 0.0; 
+        w.y = 1.0; 
+        w.z = 0.0;
     }
 
-    if (eye.get_x() == look_at.get_x() && eye.get_z() == look_at.get_z() && look_at.get_y() > eye.get_y())
+    if (eye.x == look_at.x && eye.z == look_at.z && look_at.y > eye.y)
     {
-        u.set_x(1); 
-        u.set_y(0); 
-        u.set_z(0); 
+        u.x = 1.0; 
+        u.y = 0.0; 
+        u.z = 0.0; 
 
-        v.set_x(0); 
-        v.set_y(0); 
-        v.set_z(1);
+        v.x = 0.0; 
+        v.y = 0.0; 
+        v.z = 1.0;
 
-        w.set_x(0); 
-        w.set_y(-1); 
-        w.set_z(0);
+        w.x = 0.0; 
+        w.y = -1.0; 
+        w.z = 0.0;
     }
 
 }

@@ -17,7 +17,7 @@ class Plane: public Shape
         Normal get_normal() const;
         void set_point(const double& x, const double& y, const double& z);
         void set_normal(const double& x, const double& y, const double& z);
-    private:
+    public:
         Point point;
         Normal normal;
 };

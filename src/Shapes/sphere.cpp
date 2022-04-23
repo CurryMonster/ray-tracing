@@ -32,9 +32,9 @@ double Sphere::get_radius() const
         
 void Sphere::set_center(const double& x, const double& y, const double& z)
 {
-    center.set_x(x);
-    center.set_y(y);
-    center.set_z(z);
+    center.x = x;
+    center.y = y;
+    center.z = z;
 }
         
 void Sphere::set_radius(const double& radius) 
@@ -44,11 +44,11 @@ void Sphere::set_radius(const double& radius)
         
 bool Sphere::hit(const Ray& ray, double& t_min, Record& record) const 
 {
-    double t;
-    double a = ray.get_direction() * ray.get_direction();
-    double b = 2.0 * (ray.get_origin() - center) * ray.get_direction();
-    double c = (ray.get_origin() - center) * (ray.get_origin() - center) - radius * radius;
-    double d = b * b - 4.0 * a * c;
+    double t       {0.0};
+    const double a {ray.direction * ray.direction};
+    const double b {2.0 * (ray.origin - center) * ray.direction};
+    const double c {(ray.origin - center) * (ray.origin - center) - radius * radius};
+    const double d {b * b - 4.0 * a * c};
 
     if (d < 0.0)
     {
@@ -56,14 +56,14 @@ bool Sphere::hit(const Ray& ray, double& t_min, Record& record) const
     }
     else
     {
-        double e = std::sqrt(d);
+        double e {std::sqrt(d)};
         t = (-b - e) / (2.0 * a);
 
         if (t > 0.00001)
         {
-            t_min = t;
-            record.normal = (ray.get_origin() - center + t * ray.get_direction()) / radius;
-            record.local_hit_point = ray.get_origin() + t * ray.get_direction();
+            t_min                  = t;
+            record.normal          = (ray.origin - center + t * ray.direction) / radius;
+            record.local_hit_point = ray.origin + t * ray.direction;
             return true; 
         }
 
@@ -71,9 +71,9 @@ bool Sphere::hit(const Ray& ray, double& t_min, Record& record) const
 
         if (t > 0.00001)
         {
-            t_min = t;
-            record.normal = (ray.get_origin() - center + t * ray.get_direction()) / radius;
-            record.local_hit_point = ray.get_origin() + t * ray.get_direction();
+            t_min                  = t;
+            record.normal          = (ray.origin - center + t * ray.direction) / radius;
+            record.local_hit_point = ray.origin + t * ray.direction;
             return true; 
         }
     }

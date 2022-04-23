@@ -1,0 +1,19 @@
+#pragma once
+
+#include <cmath>
+
+const double PI     = 3.141592653589793238462643383; // 20 digits...
+const double e      = 2.718281828459045235360287471; // 20 digits...
+const double inv_PI = 0.318309886183790671537767526;
+
+// random integer between '0' and '1'...
+int random_integer();
+
+// random integer between 'minimum' and 'maximum'...
+int random_integer(int minimum, int maximum);
+
+// random double between '0.0' and '1.0'...
+double random_double();
+
+// random double between 'minimum' and 'maximum'...
+double random_double(int minimum, int maximum);

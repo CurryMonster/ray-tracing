@@ -16,7 +16,7 @@ class Point
         void set_y(const double& y);
         void set_z(const double& z);
         Vector operator-(const Point& rhs) const;
-    private:
+    public:
         double x;
         double y;
         double z;

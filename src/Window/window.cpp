@@ -1,5 +1,6 @@
 #include "Window/window.hpp"
 #include "World/world.hpp"
+#include "Cameras/camera.hpp"
 
 Window::Window(int width, int height) : window {NULL}, renderer {NULL}, event {}, done {SDL_FALSE}, width {width}, height {height}
 {
@@ -10,9 +11,9 @@ Window::Window(int width, int height) : window {NULL}, renderer {NULL}, event {}
             while (!done)
             {
                 // do stuff here...
-                World w;
-                w.build();
-                w.render_scene(renderer);
+                World world;
+                world.build();
+                world.camera_ptr->render_scene(&world, renderer);
 
                 while (SDL_PollEvent(&event))
                 {

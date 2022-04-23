@@ -2,6 +2,6 @@
 
 int main(int argc, char* argv[]) 
 {
-    Window w {500, 500};
+    Window w {800, 400};
     return 0;
 }

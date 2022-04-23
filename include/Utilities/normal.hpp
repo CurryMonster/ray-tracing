@@ -8,6 +8,7 @@ class Normal
     friend double operator*(const Normal& lhs, const Vector& rhs);
     friend double operator*(const Vector& lhs, const Normal& rhs);
     public:
+        Normal();
         Normal(const double& x, const double& y, const double& z);
         double get_x() const;
         double get_y() const;
@@ -16,7 +17,7 @@ class Normal
         void set_y(const double& y);
         void set_z(const double& z);
         Normal& operator=(const Vector& rhs);
-    private:
+    public:
         double x;
         double y;
         double z;

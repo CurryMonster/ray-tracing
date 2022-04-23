@@ -47,6 +47,12 @@ Vector Vector::operator+(const Vector& rhs) const
     return Vector(x + rhs.x, y + rhs.y, z + rhs.z);
 }
 
+Vector Vector::operator-(const Vector& rhs) const 
+{
+    return Vector(x - rhs.x, y - rhs.y, z - rhs.z);
+}
+
+
 Vector Vector::operator/(const double& rhs) const 
 {
     return Vector(x / rhs, y / rhs, z / rhs);

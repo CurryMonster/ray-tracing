@@ -1,5 +1,11 @@
 #include <Utilities/normal.hpp>
 
+Normal::Normal() : x {0.0}, y {0.0}, z {0.0}
+{
+
+}
+
+
 Normal::Normal(const double& x, const double& y, const double& z)
 : x {x}, y {y}, z {z}
 {
@@ -38,18 +44,18 @@ void Normal::set_z(const double& z)
 
 double operator*(const Normal& lhs, const Vector& rhs)
 {
-    return lhs.get_x() * rhs.get_x() + lhs.get_y() * rhs.get_y() + lhs.get_z() * rhs.get_z();
+    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
 }
 
 double operator*(const Vector& lhs, const Normal& rhs)
 {
-    return lhs.get_x() * rhs.get_x() + lhs.get_y() * rhs.get_y() + lhs.get_z() * rhs.get_z();
+    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
 }
 
 Normal& Normal::operator=(const Vector& rhs)
 {
-    x = rhs.get_x();
-    y = rhs.get_y();
-    z = rhs.get_z();
+    x = rhs.x;
+    y = rhs.y;
+    z = rhs.z;
     return *this;
 }

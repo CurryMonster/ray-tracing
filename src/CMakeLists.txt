@@ -72,6 +72,38 @@ set(SOURCE_CAMERAS
     ${PROJECT_SOURCE_DIR}/src/Cameras/pinhole.cpp
 )
 
+set(HEADER_LIGHTS
+    ${PROJECT_SOURCE_DIR}/include/Lights/light.hpp
+    ${PROJECT_SOURCE_DIR}/include/Lights/ambient.hpp
+    ${PROJECT_SOURCE_DIR}/include/Lights/point-light.hpp
+)
+    
+set(SOURCE_LIGHTS
+    ${PROJECT_SOURCE_DIR}/src/Lights/light.cpp
+    ${PROJECT_SOURCE_DIR}/src/Lights/ambient.cpp
+    ${PROJECT_SOURCE_DIR}/src/Lights/point-light.cpp
+)
+
+set(HEADER_MATERIALS
+    ${PROJECT_SOURCE_DIR}/include/Materials/material.hpp
+    ${PROJECT_SOURCE_DIR}/include/Materials/matte.hpp
+)
+
+set(SOURCE_MATERIALS
+    ${PROJECT_SOURCE_DIR}/src/Materials/material.cpp
+    ${PROJECT_SOURCE_DIR}/src/Materials/matte.cpp
+)
+
+set(HEADER_BRDFS
+    ${PROJECT_SOURCE_DIR}/include/BRDFs/brdf.hpp
+    ${PROJECT_SOURCE_DIR}/include/BRDFs/lambertian.hpp
+)
+
+set(SOURCE_BRDFS
+    ${PROJECT_SOURCE_DIR}/src/BRDFs/brdf.cpp
+    ${PROJECT_SOURCE_DIR}/src/BRDFs/lambertian.cpp
+)
+
 set(HEADER_WINDOW ${PROJECT_SOURCE_DIR}/include/Window/window.hpp)
 set(SOURCE_WINDOW ${PROJECT_SOURCE_DIR}/src/Window/window.cpp)
 
@@ -81,6 +113,9 @@ add_library(World     STATIC ${SOURCE_WORLD}     ${HEADER_WORLD})
 add_library(Tracers   STATIC ${SOURCE_TRACERS}   ${HEADER_TRACERS})
 add_library(Samplers  STATIC ${SOURCE_SAMPLERS}  ${HEADER_SAMPLERS})
 add_library(Cameras   STATIC ${SOURCE_CAMERAS}   ${HEADER_CAMERAS})
+add_library(BRDFs     STATIC ${SOURCE_BRDFS}     ${HEADER_BRDFS})
+add_library(Lights    STATIC ${SOURCE_LIGHTS}    ${HEADER_LIGHTS})
+add_library(Materials STATIC ${SOURCE_MATERIALS} ${HEADER_MATERIALS})
 add_library(Window    STATIC ${SOURCE_WINDOW}    ${HEADER_WINDOW})
 
 target_include_directories(Utilities PUBLIC ${PROJECT_SOURCE_DIR}/include)
@@ -89,10 +124,15 @@ target_include_directories(Tracers   PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(World     PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(Cameras   PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(Samplers  PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(BRDFs     PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(Lights    PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(Materials PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_include_directories(Window    PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
-target_link_libraries(World  PUBLIC SDL2-static)
-target_link_libraries(Window PUBLIC SDL2-static)
+
+target_link_libraries(World   PUBLIC SDL2-static)
+target_link_libraries(Window  PUBLIC SDL2-static)
+target_link_libraries(Cameras PUBLIC SDL2-static)
 
 include_directories(${PROJECT_SOURCE_DIR}/extern/SDL2-2.0.20/include)
 
@@ -102,4 +142,7 @@ target_compile_features(World     PRIVATE cxx_std_17)
 target_compile_features(Tracers   PRIVATE cxx_std_17)
 target_compile_features(Samplers  PRIVATE cxx_std_17)
 target_compile_features(Cameras   PRIVATE cxx_std_17)
+target_compile_features(Lights    PRIVATE cxx_std_17)
+target_compile_features(BRDFs     PRIVATE cxx_std_17)
+target_compile_features(Materials PRIVATE cxx_std_17)
 target_compile_features(Window    PRIVATE cxx_std_17)

@@ -56,7 +56,7 @@ void Pinhole::render_scene(World* world_ptr, SDL_Renderer* renderer)
     Point sp_unit_sq {};
     Point sp_px      {};
 
-    view_plane.pixel_size /= 1.50;
+    view_plane.pixel_size /= 2.0;
 
     ray.origin = eye;
 
@@ -77,8 +77,10 @@ void Pinhole::render_scene(World* world_ptr, SDL_Renderer* renderer)
                 radiance      += world_ptr->tracer_ptr->trace_ray(ray);
             }
             radiance /= world_ptr->sampler_ptr->no_samples;
+            radiance *= exposure_time;
             world_ptr->render_pixel_color(renderer, radiance, j, i);
         }
     }
     SDL_RenderPresent(renderer);
 }
+

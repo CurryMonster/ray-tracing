@@ -9,7 +9,10 @@ MultipleObjects::MultipleObjects(World* world_ptr) : Tracer(world_ptr)
 
 MultipleObjects::~MultipleObjects() 
 {
-    
+    if (world_ptr)
+    {
+        world_ptr = nullptr;
+    }
 }
 
 Color MultipleObjects::trace_ray(const Ray& ray) const 

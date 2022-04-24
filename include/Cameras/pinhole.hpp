@@ -17,7 +17,7 @@ class Pinhole: public Camera
         void set_view_distance(const double&);
         void set_zoom_factor(const double&);
 
-        virtual void render_scene(World* world_ptr, SDL_Renderer* renderer);
+        virtual void render_scene(World* world_ptr, SDL_Renderer* renderer) override;
         Vector ray_direction(const Point& point) const;
     public:
         double distance;

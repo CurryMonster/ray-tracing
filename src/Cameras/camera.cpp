@@ -1,7 +1,7 @@
 #include "Cameras/camera.hpp"
 #include "World/world.hpp"
 
-Camera::Camera() : eye {}, look_at {}, up {0, 1, 0}, u {}, v {}, w {}, exposure_time {1.0}
+Camera::Camera() : eye {}, look_at {}, up {0, 1, 0}, u {}, v {}, w {}, exposure_time {2.0}
 {
 
 }

@@ -4,6 +4,8 @@
 
 class Color
 {
+    friend Color operator*(const double& lhs, const Color& rhs);
+    friend Color operator*(const Color& lhs, const double& rhs);
     public:
         Color();
         Color(const double& x, const double& y, const double& z);
@@ -16,6 +18,7 @@ class Color
         Color& operator+=(const Color& rhs);
         Color& operator*=(const double& rhs);
         Color& operator/=(const double& rhs);
+        Color operator*(const Color& rhs) const;
     public:
         double x;
         double y;
@@ -28,3 +31,4 @@ const Color red    {1.0, 0.0, 0.0};
 const Color lime   {0.0, 1.0, 0.0};
 const Color blue   {0.0, 0.0, 1.0};
 const Color yellow {1.0, 1.0, 0.0};
+const Color green  {0.0, 0.35, 0.0};

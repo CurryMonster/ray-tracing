@@ -81,3 +81,8 @@ Color Color::operator*(const Color& rhs) const
 {
     return Color(x * rhs.x, y * rhs.y, z * rhs.z);
 }
+
+Color Color::operator+(const Color& rhs) const
+{
+    return Color(x + rhs.x, y + rhs.y, z + rhs.z);
+}

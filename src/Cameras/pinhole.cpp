@@ -56,7 +56,7 @@ void Pinhole::render_scene(World* world_ptr, SDL_Renderer* renderer)
     Point sp_unit_sq {};
     Point sp_px      {};
 
-    view_plane.pixel_size /= 2.0;
+    //view_plane.pixel_size /= 0.25;
 
     ray.origin = eye;
 

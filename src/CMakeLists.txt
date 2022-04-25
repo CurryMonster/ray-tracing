@@ -87,21 +87,25 @@ set(SOURCE_LIGHTS
 set(HEADER_MATERIALS
     ${PROJECT_SOURCE_DIR}/include/Materials/material.hpp
     ${PROJECT_SOURCE_DIR}/include/Materials/matte.hpp
+    ${PROJECT_SOURCE_DIR}/include/Materials/phong.hpp
 )
 
 set(SOURCE_MATERIALS
     ${PROJECT_SOURCE_DIR}/src/Materials/material.cpp
     ${PROJECT_SOURCE_DIR}/src/Materials/matte.cpp
+    ${PROJECT_SOURCE_DIR}/src/Materials/phong.cpp
 )
 
 set(HEADER_BRDFS
     ${PROJECT_SOURCE_DIR}/include/BRDFs/brdf.hpp
     ${PROJECT_SOURCE_DIR}/include/BRDFs/lambertian.hpp
+    ${PROJECT_SOURCE_DIR}/include/BRDFs/glossy-specular-reflection.hpp
 )
 
 set(SOURCE_BRDFS
     ${PROJECT_SOURCE_DIR}/src/BRDFs/brdf.cpp
     ${PROJECT_SOURCE_DIR}/src/BRDFs/lambertian.cpp
+    ${PROJECT_SOURCE_DIR}/src/BRDFs/glossy-specular-reflection.cpp
 )
 
 set(HEADER_WINDOW ${PROJECT_SOURCE_DIR}/include/Window/window.hpp)

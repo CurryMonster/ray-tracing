@@ -59,3 +59,18 @@ Normal& Normal::operator=(const Vector& rhs)
     z = rhs.z;
     return *this;
 }
+
+Normal operator*(const double& lhs, const Normal& rhs)
+{
+    return Normal(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z);
+}
+
+Normal operator*(const Normal& lhs, const double& rhs)
+{
+    return Normal(lhs.x * rhs, lhs.y * rhs, lhs.z * rhs);
+}
+
+Vector operator+(const Vector& lhs, const Normal& rhs)
+{
+    return Vector(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z);
+}

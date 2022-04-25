@@ -1,7 +1,7 @@
 #include "Tracers/tracer.hpp"
 #include "Utilities/record.hpp"
 #include "World/world.hpp"
-#include "Materials/matte.hpp"
+#include "Materials/phong.hpp"
 
 Tracer::Tracer(World* world_ptr) : world_ptr {world_ptr}
 {
@@ -27,6 +27,6 @@ Color Tracer::trace_ray(const Ray& ray) const
     }
     else
     {
-        return green;
+        return world_ptr->background;
     }
 }

@@ -3,14 +3,12 @@
 
 #include <cmath>
 
-Sphere::Sphere()
-: center(0.0, 0.0, 0.0), radius(0.0)
+Sphere::Sphere() : center {}, radius {0.0}
 {
 
 }
 
-Sphere::Sphere(const Point& center, const double& radius)
-: center(center), radius(radius)
+Sphere::Sphere(const Point& center, const double& radius) : center {center}, radius {radius}
 {
 
 }

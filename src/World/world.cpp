@@ -20,11 +20,12 @@
 
 #include "Materials/material.hpp"
 #include "Materials/matte.hpp"
+#include "Materials/phong.hpp"
 
 World::World() : 
+    background  {black},
     tracer_ptr  {std::make_shared<Tracer>(this)}, 
-    sampler_ptr {std::make_shared<Jittered>(25)}, 
-    light_ptr   {std::make_shared<Ambient>()}
+    sampler_ptr {std::make_shared<Jittered>(4)}
 {
 
 }
@@ -50,7 +51,7 @@ Record World::config_record(const Ray& ray) const
     double t               {0.0};
     Normal normal          {};
     Point  local_hit_point {};
-    double t_m             {1.0E10};
+    double t_m             {1.0E6};
 
     for (int i {0}; i < shapes.size(); i++)
     {
@@ -86,49 +87,58 @@ void World::build()
     light_ptr = ambient_ptr;
 
     std::shared_ptr<Pinhole> pinhole_ptr = std::make_shared<Pinhole>();
-    pinhole_ptr->set_eye(300, 400, 500);
-    pinhole_ptr->set_look_at(0, 0, -50);
-    pinhole_ptr->set_view_distance(400);
+    pinhole_ptr->set_eye(0, 0, 300);
+    pinhole_ptr->set_look_at(0, 0, 0);
+    pinhole_ptr->set_view_distance(500);
     pinhole_ptr->compute_uvw();
     camera_ptr = pinhole_ptr;
 
     std::shared_ptr<PointLight> point_light = std::make_shared<PointLight>();
-    point_light->set_location(100, 50, 150);
+    point_light->set_location(-100, -100, 300);
     point_light->radiance_scaling_factor = 2.0;
     point_light->color = white;
     insert_light(point_light);
 
-    std::shared_ptr<Matte> matte_1 = std::make_shared<Matte>();
-    matte_1->set_ambient_reflection_coefficient(0.25);
-    matte_1->set_diffuse_reflection_coefficient(0.65);
-    matte_1->set_diffuse_color(red);
+    std::shared_ptr<Phong> phong_1 = std::make_shared<Phong>();
+    phong_1->set_ambient_reflection_coefficient(0.25);
+    phong_1->set_diffuse_reflection_coefficient(0.5);
+    phong_1->set_diffuse_color(red);
+    phong_1->set_specular_color(white);
+    phong_1->set_phong_exponent(50);
+    phong_1->set_specular_reflection_coefficient(0.5);
 
     std::shared_ptr<Sphere> sphere_1 = std::make_shared<Sphere>();
-    sphere_1->set_center(0, 0, 0);
-    sphere_1->set_radius(100);
-    sphere_1->set_material(matte_1);
+    sphere_1->set_center(0,  0, 100);
+    sphere_1->set_radius(50);
+    sphere_1->set_material(phong_1);
     insert_shape(sphere_1);
 
-    std::shared_ptr<Matte> matte_2 = std::make_shared<Matte>();
-    matte_2->set_ambient_reflection_coefficient(0.25);
-    matte_2->set_diffuse_reflection_coefficient(0.65);
-    matte_2->set_diffuse_color(blue);
+    std::shared_ptr<Phong> phong_2 = std::make_shared<Phong>();
+    phong_2->set_ambient_reflection_coefficient(0.25);
+    phong_2->set_diffuse_reflection_coefficient(0.5);
+    phong_2->set_diffuse_color(blue);
+    phong_2->set_specular_color(white);
+    phong_2->set_phong_exponent(50);
+    phong_2->set_specular_reflection_coefficient(0.5);
 
     std::shared_ptr<Sphere> sphere_2 = std::make_shared<Sphere>();
-    sphere_2->set_center(-250, 0, 0);
-    sphere_2->set_radius(100);
-    sphere_2->set_material(matte_2);
+    sphere_2->set_center(-115, 30, 80);
+    sphere_2->set_radius(50);
+    sphere_2->set_material(phong_2);
     insert_shape(sphere_2);
 
-    std::shared_ptr<Matte> matte_3 = std::make_shared<Matte>();
-    matte_3->set_ambient_reflection_coefficient(0.25);
-    matte_3->set_diffuse_reflection_coefficient(0.65);
-    matte_3->set_diffuse_color(yellow);
+    std::shared_ptr<Phong> phong_3 = std::make_shared<Phong>();
+    phong_3->set_ambient_reflection_coefficient(0.25);
+    phong_3->set_diffuse_reflection_coefficient(0.5);
+    phong_3->set_diffuse_color(yellow);
+    phong_3->set_specular_color(white);
+    phong_3->set_phong_exponent(50);
+    phong_3->set_specular_reflection_coefficient(0.5);
 
     std::shared_ptr<Sphere> sphere_3 = std::make_shared<Sphere>();
-    sphere_3->set_center(190, -100, -100);
-    sphere_3->set_radius(100);
-    sphere_3->set_material(matte_3);
+    sphere_3->set_center(100, -30, 100);
+    sphere_3->set_radius(50);
+    sphere_3->set_material(phong_3);
     insert_shape(sphere_3);
 
 }

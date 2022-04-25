@@ -22,6 +22,7 @@ class World
     public:
         ViewPlane view_plane;
         Sphere    sphere;
+        Color     background;
 
         std::shared_ptr<Tracer>  tracer_ptr;
         std::shared_ptr<Camera>  camera_ptr;

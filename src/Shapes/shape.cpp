@@ -1,5 +1,6 @@
 #include "Shapes/shape.hpp"
 #include "Materials/matte.hpp"
+#include "Materials/phong.hpp"
 
 Shape::Shape() : color {}, material_ptr {nullptr}
 {

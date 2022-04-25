@@ -2,6 +2,7 @@
 
 #include "World/world.hpp"
 #include "Materials/matte.hpp"
+#include "Materials/phong.hpp"
 
 Record::Record(const World* world_ptr) : 
     hit_an_object   {false}, 

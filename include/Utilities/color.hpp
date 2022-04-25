@@ -15,6 +15,7 @@ class Color
         void set_x(const double& x);
         void set_y(const double& y);
         void set_z(const double& z);
+        Color operator+(const Color& rhs) const;
         Color& operator+=(const Color& rhs);
         Color& operator*=(const double& rhs);
         Color& operator/=(const double& rhs);
@@ -32,3 +33,6 @@ const Color lime   {0.0, 1.0, 0.0};
 const Color blue   {0.0, 0.0, 1.0};
 const Color yellow {1.0, 1.0, 0.0};
 const Color green  {0.0, 0.35, 0.0};
+const Color silver {0.75, 0.75, 0.75};
+const Color smoke  {0.96, 0.96, 0.96};
+const Color midnight {0.098, 0.098, 0.439};
